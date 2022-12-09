@@ -17,6 +17,7 @@ const Home = () => {
         dispatch({ type: "SET_WORKOUTS", payload: json });
       }
     };
+
     fetchWorkouts();
   }, [dispatch]);
 
@@ -25,7 +26,7 @@ const Home = () => {
       <div className="workouts">
         {workouts &&
           workouts.map(workout => (
-            <WorkoutDetails key={workout._id} workout={workout} />
+            <WorkoutDetails workout={workout} key={workout._id} />
           ))}
       </div>
       <WorkoutForm />

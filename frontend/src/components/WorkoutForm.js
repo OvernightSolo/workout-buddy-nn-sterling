@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
 const WorkoutForm = () => {
-  const { dispatch } = useWorkoutsContext;
+  const { dispatch } = useWorkoutsContext();
+
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState("");
   const [reps, setReps] = useState("");
@@ -24,12 +25,12 @@ const WorkoutForm = () => {
 
     if (!response.ok) {
       setError(json.error);
-    } else {
+    }
+    if (response.ok) {
+      setError(null);
       setTitle("");
       setLoad("");
       setReps("");
-      setError(null);
-      console.log("new workout added", json);
       dispatch({ type: "CREATE_WORKOUT", payload: json });
     }
   };
@@ -38,7 +39,7 @@ const WorkoutForm = () => {
     <form className="create" onSubmit={handleSubmit}>
       <h3>Add a New Workout</h3>
 
-      <label>Exercise Name</label>
+      <label>Exercise Name:</label>
       <input
         type="text"
         onChange={e => setTitle(e.target.value)}
@@ -52,7 +53,7 @@ const WorkoutForm = () => {
         value={load}
       />
 
-      <label>Reps:</label>
+      <label>Number of Reps:</label>
       <input
         type="number"
         onChange={e => setReps(e.target.value)}
