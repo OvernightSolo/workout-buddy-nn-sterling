@@ -6,6 +6,9 @@ const WorkoutDetails = ({ workout }) => {
         <strong>Load (lbs): </strong> {workout.load}
       </p>
       <p>
+        <strong>Sets: </strong> {workout.sets}
+      </p>
+      <p>
         <strong>Reps: </strong> {workout.reps}
       </p>
       <p>{workout.createdAt}</p>
