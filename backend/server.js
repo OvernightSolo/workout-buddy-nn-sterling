@@ -19,10 +19,13 @@ app.use("/api/workouts", workoutRoutes);
 
 // connect to db
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: "true",
-    useUnifiedTopology: "true",
-  })
+  .connect(
+    "mongodb+srv://scottSterling:Koeppel24@mernappnn.jmorfln.mongodb.net/?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: "true",
+      useUnifiedTopology: "true",
+    }
+  )
   .then(() => {
     // listen for requests
     app.listen(process.env.PORT, () => {
