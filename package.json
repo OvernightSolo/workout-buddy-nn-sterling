@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/OvernightSolo/workout-buddy-nn-sterling#readme",
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "dotenv": "^16.0.3"
   }
 }
