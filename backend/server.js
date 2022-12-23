@@ -19,7 +19,12 @@ app.use("/api/workouts", workoutRoutes);
 
 // connect to db
 mongoose
-  .connect(process.env.MONGO_URI, {})
+  .connect(
+    "mongodb+srv://scottSterling:Koeppel24@mernappnn.jmorfln.mongodb.net/?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+    }
+  )
   .then(() => {
     // listen for requests
     app.listen(process.env.PORT, () => {
